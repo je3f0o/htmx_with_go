@@ -1,0 +1,69 @@
+{{ define "index" }}<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <title>HTMX + Go lang</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+{{ template "appbar" }}
+<div class="flex flex-row flex-grow">
+  {{ template "sidenav" }}
+  <div id="page-content">
+    {{ if .is_fullpage }}
+      {{ call_template .pagename }}
+    {{ end }}
+  </div>
+</div>
+</body>
+</html>{{ end }}
+
+{{ define "appbar" }}
+<div class="appbar">HTMX + Go lang</div>
+{{ end }}
+
+{{ define "sidenav" }}
+<div class="main-sidenav">
+  <a href="/home"
+     hx-get="/home"
+     hx-target="#page-content"
+     hx-headers='{"X-PARTIAL": true}'
+     hx-push-url="true">Home</a>
+  <a href="/about"
+     hx-get="/about"
+     hx-target="#page-content"
+     hx-headers='{"X-PARTIAL": true}'
+     hx-push-url="true">About</a>
+  <a href="/contacts"
+     hx-get="/contacts"
+     hx-target="#page-content"
+     hx-headers='{"X-PARTIAL": true}'
+     hx-push-url="true">Contacts</a>
+</div>
+{{ end }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{ define "home" }}
+  <h1>Home</h1>
+{{ end }}
+
+{{ define "about" }}
+  <h1>About</h1>
+{{ end }}
+
+{{ define "contacts" }}
+  <h1>Contacts</h1>
+{{ end }}

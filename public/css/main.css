@@ -1,0 +1,43 @@
+:root {
+  --bg-color: #121212;
+  --fg-color: rgba(255,255,255,.87);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color            : var(--fg-color);
+  background-color : var(--bg-color);
+  height           : 100vh;
+  display          : flex;
+  flex-direction   : column;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.appbar {
+  height           : 64px;
+  padding          : 0 16px;
+  line-height      : 64px;
+  background-color : #2b2b2b;
+}
+
+.main-sidenav {
+  width            : 250px;
+  background-color : #212121;
+}
+.main-sidenav > a {
+  display: block;
+}
